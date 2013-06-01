@@ -52,7 +52,7 @@ class Qgis < Formula
 
     # todo: set the python executable
 
-    args << "-DGRASS_PREFIX='#{Formula.factory('grass').opt_prefix}'" if build.with? 'grass'
+    args << "-DGRASS_PREFIX='#{Formula.factory('grass').opt_prefix + Formula.factory('grass').installed_version}'" if build.with? 'grass'
 
     # So that `libintl.h` can be found
     ENV.append 'CXXFLAGS', "-I'#{Formula.factory('gettext').opt_prefix}/include'" if build.with? 'grass'
