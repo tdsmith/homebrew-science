@@ -14,7 +14,9 @@ class Libsequence < Formula
     sha256 "d3734a60eece746f0e72bc58275350ed196c55dd1fe12000a74738a14547b3a7" => :mavericks
   end
 
-  depends_on "boost" => :build
+  cxx11 = OS.linux? || MacOS.version > :mountain_lion ? [] : ["c++11"]
+
+  depends_on "boost" => cxx11
   depends_on "gsl"
 
   needs :cxx11
