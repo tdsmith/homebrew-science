@@ -3,9 +3,6 @@ class Analysis < Formula
   url "https://github.com/molpopgen/analysis/archive/0.8.7.tar.gz"
   sha256 "3af7ce89358376d3d27ee97b518735ddddc7a5cb6e0b340833c8e1a44fdb34be"
 
-  cxx11 = OS.linux? || MacOS.version >= :mavericks ? [] : ["c++11"]
-
-  depends_on "boost" => cxx11
   depends_on "gsl"
   depends_on "libsequence"
 
