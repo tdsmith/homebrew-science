@@ -1,5 +1,3 @@
-require "formula"
-
 class Idba < Formula
   homepage "http://i.cs.hku.hk/~alse/hkubrg/projects/idba/"
   #doi "10.1093/bioinformatics/bts174"
@@ -16,10 +14,7 @@ class Idba < Formula
     sha1 "477629a12e2f514b50e4a16873afce2fda40d8bf" => :mountain_lion
   end
 
-  fails_with :clang do
-    build 600
-    cause "Requires OpenMP"
-  end
+  needs :openmp
 
   def install
     system "./configure",
