@@ -14,6 +14,11 @@ class Idba < Formula
     sha1 "477629a12e2f514b50e4a16873afce2fda40d8bf" => :mountain_lion
   end
 
+  resource "lacto-reads" do
+    url "https://hku-idba.googlecode.com/files/lacto.reads.tar.gz"
+    sha256 "11709f9f69be90ce83ab047e4633b6a75467a7cda587666282c3ca0730a4221a"
+  end
+
   needs :openmp
 
   def install
@@ -29,6 +34,7 @@ class Idba < Formula
   end
 
   test do
-    system "#{bin}/idba_ud 2>&1 |grep IDBA"
+    resource("lacto-reads").stage testpath
+    system bin/"idba", "-r", testpath/"Lacto.reads-mate-30-0.01-75", "-o", testpath/"lacto"
   end
 end
