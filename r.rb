@@ -121,7 +121,10 @@ class R < Formula
       system "make"
       ENV.deparallelize # Serialized installs, please
       system "make check 2>&1 | tee make-check.log" if build.with? "check"
-      system "make", "install"
+
+      make_install = %w[make install]
+      make_install << "rhome=#{prefix}" if OS.linux?
+      system *make_install
 
       # Link binaries, headers, libraries, & manpages from the Framework
       # into the normal locations
@@ -188,7 +191,7 @@ class R < Formula
   end
 
   def r_home
-    OS.mac? ? (prefix/"R.framework/Resources") : (prefix/"lib/R")
+    OS.mac? ? (prefix/"R.framework/Resources") : prefix
   end
 
   def site_library
