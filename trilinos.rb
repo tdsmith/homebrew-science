@@ -4,6 +4,7 @@ class Trilinos < Formula
   url "http://trilinos.csbsju.edu/download/files/trilinos-12.6.2-Source.tar.bz2"
   sha256 "77f1674d1fe8b9249db967b8f6c162ebfde50c43d5cb993044825302c624b00e"
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
+  revision 1
 
   bottle do
     sha256 "d2153f608644b0d244069c9961e562af7ebac1d7811af3d7379c2bc75a736771" => :el_capitan
