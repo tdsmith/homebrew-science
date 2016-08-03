@@ -3,6 +3,7 @@ class Diamond < Formula
   homepage "http://ab.inf.uni-tuebingen.de/software/diamond/"
   # doi "10.1038/nmeth.3176"
   # tag "bioinformatics"
+  revision 1
 
   url "https://github.com/bbuchfink/diamond/archive/v0.8.16.tar.gz"
   sha256 "369cbacc8169671a299cb87278a868fea3179da7d4c18eabf04f4c8750a5e482"
