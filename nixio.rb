@@ -34,6 +34,9 @@ class Nixio < Formula
   def install
     ENV.cxx11
 
+    # https://github.com/G-Node/nix/pull/622
+    inreplace "CMakeLists.txt", "(nix CXX)", "(nix C CXX)"
+
     system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "test"
